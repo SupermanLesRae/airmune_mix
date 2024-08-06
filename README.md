@@ -1,4 +1,4 @@
-# Minimal Boilerplate for building static pages.
+# Airmune
 
 ## 🚀 Laravel Mix 6, TailwindCSS 2, PostCSS 8, and ES6 Vanilla JS components.
 
