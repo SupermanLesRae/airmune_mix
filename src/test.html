@@ -1,0 +1,115 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .frame {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            width: 80%;
+            height: 80%;
+            ;
+            background: blue url('http://img1.123freevectors.com/wp-content/uploads/objects_big/122_Vector_Compass.png') no-repeat center center;
+            display: flex;
+            align-content: center;
+            align-items: center;
+
+            font-size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: #fff;
+        }
+
+        p {
+            margin: 0 auto;
+            text-align: center;
+            width: 80%;
+        }
+
+        body {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="frame">
+        <p>Move and scale me around. Maybe even rotate in Safari?</p>
+    </div>
+
+    <script>
+
+
+        var node;
+        var rotation = 0;
+        var gestureStartRotation = 0;
+        var gestureStartScale = 0;
+        var scale = 1;
+        var posX = 0;
+        var posY = 0;
+        var startX;
+        var startY;
+
+        var node = document.querySelector('.page-container')
+
+        var render = () => {
+
+            window.requestAnimationFrame(() => {
+                var val = `translate3D(${posX}px, ${posY}px, 0px) rotate(${rotation}deg) scale(${scale})`
+                node.style.transform = val;
+
+                console.log(val);
+            })
+
+        }
+
+        window.addEventListener('wheel', (e) => {
+            e.preventDefault();
+
+            if (e.ctrlKey) {
+                scale -= e.deltaY * 0.01;
+            } else {
+                posX -= e.deltaX * 2;
+                posY -= e.deltaY * 2;
+            }
+
+            render();
+        });
+
+
+        window.addEventListener("gesturestart", function (e) {
+            e.preventDefault();
+            startX = e.pageX - posX;
+            startY = e.pageY - posY;
+            gestureStartRotation = rotation;
+            gestureStartScale = scale;
+        });
+
+        window.addEventListener("gesturechange", function (e) {
+            e.preventDefault();
+
+            rotation = gestureStartRotation + e.rotation;
+            scale = gestureStartScale * e.scale;
+
+            posX = e.pageX - startX;
+            posY = e.pageY - startY;
+
+            render();
+
+        })
+
+        window.addEventListener("gestureend", function (e) {
+            e.preventDefault();
+        });
+
+
+    </script>
+</body>
+
+</html>

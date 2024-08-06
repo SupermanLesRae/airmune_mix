@@ -1,0 +1,42 @@
+{
+  "name": "laravel-mix-tailwindcss",
+  "version": "1.0.0",
+  "description": "Minimal Boilerplate for building static pages based on Laravel Mix 6, TailwindCSS 2, PostCSS 8, and ES6 Vanilla JS components.",
+  "main": "index.js",
+  "scripts": {
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-production": "NODE_ENV=production mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production"
+  },
+  "author": {
+    "name": "Tomasz Bujnowicz",
+    "email": "hi@tomaszbujnowicz.com",
+    "url": "https://www.tomaszbujnowicz.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "browser-sync-webpack-plugin": "2.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.21.0",
+    "eslint-plugin-vue": "^7.7.0",
+    "eslint-webpack-plugin": "^2.5.2",
+    "laravel-mix": "^6.0.13",
+    "laravel-mix-eslint": "^0.2.0",
+    "postcss": "^8.2.8",
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "^5.0.5",
+    "tailwindcss": "^2.0.3",
+    "webpack-cli": "^4.5.0"
+  },
+  "dependencies": {
+    "gsap": "^3.6.0",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.6.0",
+    "parallax-js": "^3.1.0",
+    "simple-parallax-js": "^5.6.2"
+  }
+}
